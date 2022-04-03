@@ -2,8 +2,6 @@
 ARG UBUNTU_RELEASE=20.04
 FROM nvcr.io/nvidia/cudagl:11.0.3-runtime-ubuntu${UBUNTU_RELEASE}
 
-LABEL maintainer "https://github.com/ehfd,https://github.com/danisla"
-
 ARG UBUNTU_RELEASE
 # Make all NVIDIA GPUs visible, but we want to manually install drivers
 ARG NVIDIA_VISIBLE_DEVICES=all
