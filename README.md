@@ -2,7 +2,7 @@
 
 MATE Desktop container designed for Kubernetes with direct access to the GPU with EGL using VirtualGL for GPUs with WebRTC and HTML5, providing an open source remote cloud graphics or game streaming platform. Does not require `/tmp/.X11-unix` host sockets or host configuration.
 
-Use [docker-nvidia-glx-desktop](https://github.com/ehfd/docker-nvidia-glx-desktop) for a MATE Desktop container with better performance, also including Vulkan support for NVIDIA GPUs by spawning its own X Server without using `/tmp/.X11-unix` host sockets.
+Use [docker-nvidia-glx-desktop](https://github.com/lianshufeng/docker-nvidia-glx-desktop) for a MATE Desktop container with better performance, also including Vulkan support for NVIDIA GPUs by spawning its own X Server without using `/tmp/.X11-unix` host sockets.
 
 ### Usage
 
@@ -24,7 +24,7 @@ The username is `user` in both the container user account and the web authentica
 1. Run the container with Docker (or other similar container CLIs like Podman):
 
 ```
-docker run --gpus 1 -it -e TZ=UTC -e SIZEW=1920 -e SIZEH=1080 -e REFRESH=60 -e DPI=96 -e CDEPTH=24 -e PASSWD=mypasswd -e WEBRTC_ENCODER=nvh264enc -e BASIC_AUTH_PASSWORD=mypasswd -p 8080:8080 ghcr.io/ehfd/nvidia-egl-desktop:latest
+docker run --gpus 1 -it -e TZ=UTC -e SIZEW=1920 -e SIZEH=1080 -e REFRESH=60 -e DPI=96 -e CDEPTH=24 -e PASSWD=mypasswd -e WEBRTC_ENCODER=nvh264enc -e BASIC_AUTH_PASSWORD=mypasswd -p 8080:8080 lianshufeng/desktop:latest
 ```
 > NOTES: The container tags available are `latest` and `20.04` for Ubuntu 20.04 and `18.04` for Ubuntu 18.04. Replace all instances of `mypasswd` with your desired password. `BASIC_AUTH_PASSWORD` will default to `PASSWD` if unspecified. The container must not be run in privileged mode. Use the option `--tmpfs /dev/shm:rw` for a slight performance improvement.
 
